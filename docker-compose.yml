@@ -12,12 +12,34 @@ services:
       - ./.docker/php-apache/apache/conf-enabled/:/etc/apache2/conf-enabled/
       - ./.docker/php-apache/apache/mods-enabled/:/etc/apache2/mods-enabled/
       - ./.docker/php-apache/apache/sites-enabled/:/etc/apache2/sites-enabled/
+      # Logs (Not Working)
+      ##- ./docker/php-apache/apache/logs/access.log:/var/log/apache2/access.log
+      ##- ./docker/php-apache/apache/logs/error.log:/var/log/apache2/error.log
       # Working Directory
       - ./src/:/var/www/html/
     networks:
       - backend
     ports:
+      #- "80:80"   #127.0.0.1
+      #- "8080:80" #127.0.0.1:8080
+      #- "8000:80" #127.0.0.1:8000
       - "80:80"
+
+#  mysql:
+#    container_name: mysql
+#    build: ./.docker/mysql
+#    #volumes:
+#      # Config
+#      #- ./.docker/mysql/my.cnf:/etc/mysql/my.cnf
+#      # Data
+#      #- ./data/mysql:/var/lib/mysql
+#    ports:
+#      - "3306:3306"
+#    #network_mode: host
+#    networks:
+#      - backend
+#    command: --default-authentication-plugin=mysql_native_password
+#    restart: always
 
   mysql:
     image: mysql
@@ -49,7 +71,7 @@ services:
     networks:
       - backend
     volumes:
-      # Config
+      # COnfig
       - ./.docker/phpmyadmin/uploads.ini:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
 
 networks:

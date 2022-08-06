@@ -1,1 +1,1 @@
-../mods-available/php.load
+LoadModule php_module         /usr/lib/apache2/modules/libphp.so

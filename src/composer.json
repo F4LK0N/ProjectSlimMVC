@@ -22,5 +22,13 @@
   "require-dev": {
     "phpunit/phpunit": "9.*",
     "mockery/mockery": "1.5.*"
+  },
+
+  "scripts": {
+    "da": "composer dumpautoload",
+    "test": "./vendor/bin/phpunit --no-coverage ./tests",
+    "testdox": "./vendor/bin/phpunit --testdox --no-coverage ./tests",
+    "coverage": "./vendor/bin/phpunit --coverage-html ./tests-coverage-html ./tests",
+    "clear": "rm -R ./tests-coverage-html"
   }
 }

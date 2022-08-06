@@ -1,1 +1,2 @@
-../mods-available/mpm_prefork.load
+# Conflicts: mpm_event mpm_worker
+LoadModule mpm_prefork_module /usr/lib/apache2/modules/mod_mpm_prefork.so

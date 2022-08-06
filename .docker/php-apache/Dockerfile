@@ -61,7 +61,7 @@ RUN docker-php-ext-install mysqli \
 RUN pecl install -o -f xdebug-3.1.5
 RUN docker-php-ext-enable xdebug
 ENV XDEBUG_INI_FILE=/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.mode=develop,debug" >>  ${XDEBUG_INI_FILE} \
+RUN echo "xdebug.mode=develop,debug,coverage" >>  ${XDEBUG_INI_FILE} \
     && echo "xdebug.discover_client_host=1" >> ${XDEBUG_INI_FILE} \
     && echo "xdebug.start_with_request=yes" >> ${XDEBUG_INI_FILE} \
     && echo "xdebug.client_port=10000" >> ${XDEBUG_INI_FILE} \
@@ -71,6 +71,7 @@ RUN echo "xdebug.mode=develop,debug" >>  ${XDEBUG_INI_FILE} \
     && echo "xdebug.var_display_max_data=2048" >> ${XDEBUG_INI_FILE} \
     && echo "xdebug.var_display_max_depth=10" >> ${XDEBUG_INI_FILE} \
     && echo "xdebug.var_display_max_children=512" >> ${XDEBUG_INI_FILE}
+
 
 
 ########################################################################################################################
