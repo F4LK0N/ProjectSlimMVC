@@ -16,7 +16,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 
 $app->get('/DEV[/{endpoints:.*}]', function (Request $request, Response $response, array $endpoints) {
     $controller = new DevController($request,$response, $endpoints);
-    return $response;
+    return $controller->run();
 });
 
 $app->run();
